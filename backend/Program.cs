@@ -30,7 +30,7 @@ namespace backend
                     else
                     {
                         await db.Database.EnsureCreatedAsync();
-                    }       
+                    }
                     Console.WriteLine("✅ Migraciones aplicadas exitosamente");
                 }
                 catch (Exception ex)
@@ -80,6 +80,28 @@ namespace backend
                 {
                     Console.WriteLine($"❌ Error al crear usuario admin: {ex.Message}");
                     throw;
+                }
+            }
+
+            using (var alcance = anfitrion.Services.CreateScope())
+            {
+                var config = alcance.ServiceProvider.GetRequiredService<IConfiguration>();
+
+                var rutas = new[]
+                {
+                    config["DocumentosConfig:RutaRepositorio"],
+                    config["DocumentosConfig:RutaDominios"],
+                    config["DocumentosConfig:RutaTemporal"],
+                    config["DocumentosConfig:RutaBackups"]
+                };
+
+                foreach (var ruta in rutas)
+                {
+                    if (!string.IsNullOrEmpty(ruta) && !Directory.Exists(ruta))
+                    {
+                        Directory.CreateDirectory(ruta);
+                        Console.WriteLine($"✅ Carpeta creada: {ruta}");
+                    }
                 }
             }
 

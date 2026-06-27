@@ -203,7 +203,7 @@ export default function Login() {
       {!showRecovery ? (
         isTwoFactorStep ? (
           <div className="login-box">
-            <img src="/images/MuniLogo_principal.png" alt="Logo Municipalidad de Palmares" className="login-logo" />
+            <img src="/images/logo_miccit.png" alt="Logo_login" className="login-logo" />
             <h2>Verificación en dos pasos (2FA)</h2>
             <form className="login-form" onSubmit={handleTwoFactorConfirm}>
               <input
@@ -222,7 +222,7 @@ export default function Login() {
           </div>
         ) : (
           <div className="login-box">
-            <img src="/images/MuniLogo_principal.png" alt="Logo Municipalidad de Palmares" className="login-logo" />
+            <img src="/images/logo_miccit.png" alt="Logo_dashboard" className="login-logo" />
             <h2>Iniciar Sesión</h2>
             <form className="login-form" onSubmit={handleLogin}>
               <input type="text" value={cedula} onChange={e => setCedula(e.target.value)} placeholder="Cédula" />
@@ -238,7 +238,7 @@ export default function Login() {
         )
       ) : (
         <div className="login-box">
-          <img src="/images/MuniLogo_principal.png" alt="Logo Municipalidad de Palmares" className="login-logo" />
+          <img src="/images/logo_miccit.png" alt="Logo_dashboard" className="login-logo" />
           <h2>Recuperar Contraseña</h2>
 
           {step === 1 ? (

@@ -128,7 +128,7 @@ const BarraSuperior = ({ onToggleNotifications, onToggleMobileMenu, notification
       </button>
 
       <div className="logo">
-        <img src="/images/MuniLogo_principal_letras_negras.png" alt="Logo Municipalidad de Palmares" />
+        <img src="/images/logo_miccit.png" alt="Logo_dashboard" />
       </div>
 
       <div className="search-container" ref={searchRef}>

@@ -14,15 +14,19 @@ namespace backend.Services.Implementations
         private readonly IAuditoriaService? _auditoriaService;
         private readonly ILogger<UsuarioService> _logger;
 
+        private readonly IConfiguration _config;
+
         public UsuarioService(
             IUsuarioRepository usuarioRepository,
             IRolService rolService,
             ILogger<UsuarioService> logger,
+            IConfiguration config,
             IAuditoriaService? auditoriaService = null)
         {
             _usuarioRepository = usuarioRepository;
             _rolService = rolService;
             _logger = logger;
+            _config = config;
             _auditoriaService = auditoriaService;
         }
 
@@ -197,12 +201,12 @@ namespace backend.Services.Implementations
 
             var usuario = new Usuario
             {
-                cedula = "000000000",
-                nombre = "Usuario Súper Admin",
-                correo_electronico = "eherreram200@gmail.com",
-                departamento = "Dirección General",
+                cedula = _config["InitialAdminUser:Cedula"] ?? "000000000",
+                nombre = _config["InitialAdminUser:Nombre"] ?? "Administrador Inicial",
+                correo_electronico = _config["InitialAdminUser:Email"] ?? "admin@example.com",
+                departamento = _config["InitialAdminUser:Departamento"] ?? "Dirección General",
                 idRol = rolAdmin?.idRol ?? 1,      // usar idRol del rolAdmin o 1 por defecto
-                contrasena = HashearContrasena("superadmin1234"),
+                contrasena = HashearContrasena(_config["InitialAdminUser:Password"] ?? "admin1234"), // usar contraseña de configuración o "admin1234" por defecto
                 estado = true,
                 fechaCreacion = DateTime.Now,
                 fechaUltimaModificacion = DateTime.Now,
