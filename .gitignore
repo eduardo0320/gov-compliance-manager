@@ -1,0 +1,39 @@
+# Build
+bin/
+obj/
+*.user
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.sln.docstates
+
+
+appsettings.Development.json
+appsettings.Production.json
+
+
+*.db
+*.db-shm
+*.db-wal
+
+# Node
+node_modules/
+dist/
+
+# documents folder
+gov-compliance-manager/
+
+# OS
+.DS_Store
+Thumbs.db
+
+.github/
+
+# tests errors logs
+backend/Tests/build-errors.txt
+backend/Tests/services-errors.txt
+
+# repleace
+backend/wwwroot/transparencia/

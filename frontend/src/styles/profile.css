@@ -1,0 +1,159 @@
+/* ============================================================
+   profile.css — Perfil de usuario, secciones de detalle, logs
+   ============================================================ */
+
+/* ─── Perfil ─── */
+.profile-content { padding: 20px; }
+.profile-card { background: white; border-radius: var(--radius-md); box-shadow: var(--shadow-md); overflow: hidden; }
+.profile-header { background: var(--color-gray-mid); color: white; padding: 30px; display: flex; align-items: center; gap: 20px; }
+.profile-avatar { font-size: 80px; color: white; }
+.profile-basic h2 { margin-bottom: 5px; }
+.profile-basic p  { margin: 2px 0; opacity: 0.9; }
+.profile-details  { padding: 30px; }
+.detail-section   { margin-bottom: 30px; }
+.detail-section h3 { color: var(--color-dark); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--color-primary); }
+.detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.detail-item { display: flex; flex-direction: column; gap: 5px; }
+.detail-item label { font-weight: bold; color: var(--color-dark); font-size: 14px; }
+.detail-item span  { color: #333; font-size: 16px; }
+.detail-item div   { display: flex; flex-direction: column; }
+.detail-item input { padding: 8px 12px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 16px; }
+
+/* Inputs de edición */
+.detail-item input[type="text"],
+.detail-item input[type="email"] {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.detail-item input[type="text"]:focus,
+.detail-item input[type="email"]:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+.detail-item input.error { border-color: var(--color-danger); background-color: #fdf2f2; }
+.detail-item input.error:focus {
+  outline: none;
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,0.25);
+}
+.detail-item .error-message {
+  display: block;
+  color: var(--color-danger);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.detail-item.readonly span { color: #495057; font-weight: normal; }
+.detail-item.editable span { color: var(--color-gray); }
+
+.security-actions { display: flex; gap: 15px; }
+
+/* ─── Tabla de Logs ─── */
+.logs-table-container {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.logs-table { width: 100%; border-collapse: collapse; }
+.logs-table th {
+  background-color: var(--color-dark);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.logs-table td { padding: 12px; border-bottom: 1px solid #f8f9fa; font-size: 13px; vertical-align: top; }
+.logs-table tr:hover { background-color: #f8f9fa; }
+.logs-table .no-data { text-align: center; color: var(--color-gray); font-style: italic; padding: 40px; }
+.log-fecha       { white-space: nowrap; font-family: monospace; font-size: 12px; }
+.log-usuario     { font-weight: 500; }
+.log-descripcion { max-width: 300px; word-wrap: break-word; }
+.log-ip          { font-family: monospace; font-size: 12px; color: var(--color-gray); }
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .domain-overview  { flex-direction: column; }
+  .detail-grid      { grid-template-columns: 1fr; }
+  .security-actions { flex-direction: column; }
+}
+
+/* profile-toast migrado a componente global Toast.jsx */
+
+/* ─── Grilla de detalles 3 columnas ─── */
+.detail-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* ─── Campo de solo lectura ─── */
+.detail-item-readonly-hint {
+  color: #666;
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ─── Acciones del perfil ─── */
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ─── Spinner de carga del perfil ─── */
+.profile-loading {
+  text-align: center;
+  padding: 40px;
+}
+.profile-loading-icon {
+  font-size: 24px;
+  color: #6c757d;
+}
+.profile-loading-text {
+  margin-top: 10px;
+  color: #6c757d;
+}
+
+/* ─── Contenedor principal del perfil con scroll ─── */
+.profile-page {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* ─── Responsive profile ─── */
+@media (max-width: 900px) {
+  .detail-grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .detail-grid-3col {
+    grid-template-columns: 1fr;
+  }
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .profile-avatar { font-size: 56px; }
+  .profile-details { padding: 16px; }
+  .detail-section h3 { font-size: 15px; }
+  .profile-actions {
+    flex-direction: column;
+  }
+  .profile-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

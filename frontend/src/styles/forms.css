@@ -1,0 +1,329 @@
+/* ============================================================
+   forms.css — Login, formularios genéricos, cambiar contraseña
+   ============================================================ */
+
+/* ─── Login ─── */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f4f6fa;
+  position: fixed;
+  width: 100vw;
+  top: 0; left: 0;
+  z-index: 1000;
+}
+
+.login-box {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-box img,
+.login-logo {
+  height: 100px;
+  width: 240px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.login-box h2 { margin: 0; text-align: center; }
+
+.login-box input {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-box button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+.login-box button:hover { background: var(--color-primary-dark); }
+
+.login-form {
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 768px) { .login-form { gap: 18px; } }
+
+.login-links { text-align: right; font-size: 0.95rem; margin-top: 8px; }
+.login-links a { color: var(--color-primary); text-decoration: none; }
+.login-links a:hover { text-decoration: underline; }
+
+.login-error   { color: #c0392b; font-size: 0.95rem; }
+.login-success { color: #27ae60; font-size: 0.95rem; margin-top: 10px; }
+
+/* Texto informativo en recuperación */
+.login-hint {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Mensaje 2FA */
+.twofactor-msg { margin-top: 10px; color: #333; font-size: 0.95rem; }
+
+/* ─── Formulario genérico de proceso / actividad ─── */
+.process-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.form-section { margin-bottom: 32px; }
+.form-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--color-gray-light);
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(236,72,59,0.1);
+}
+.form-group input:disabled,
+.form-group select:disabled,
+.form-group textarea:disabled {
+  background-color: var(--color-gray-light);
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-gray-light);
+}
+
+/* Filtros en listados */
+.filter-container { display: flex; align-items: center; gap: 8px; }
+.filter-container label { font-size: 14px; font-weight: 500; color: var(--color-dark); white-space: nowrap; }
+
+.filter-input,
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+}
+.filter-input { min-width: 250px; }
+.filter-select { min-width: 200px; }
+
+.filter-field { display: flex; flex-direction: column; gap: 6px; min-width: 170px; }
+.filter-field label { font-size: 13px; font-weight: 600; color: var(--color-dark); }
+.filter-field .form-control {
+  height: 36px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  padding: 6px 10px;
+  background-color: #fff;
+}
+.filter-field .form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(236,72,59,0.15);
+}
+.filter-field-actions { min-width: 140px; }
+.logs-filters-grid { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+.order-hint { margin-top: 10px; font-size: 12px; color: var(--color-gray); }
+
+/* ─── Modal de cambiar contraseña ─── */
+.password-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.password-modal {
+  background: white;
+  border-radius: var(--radius-md);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.password-modal-header {
+  padding: 20px 24px 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.password-modal-title { margin: 0; font-size: 24px; font-weight: 600; color: #007bff; }
+.password-modal-body { padding: 15px 24px 24px; }
+
+.password-form-group { margin-bottom: 20px; }
+.password-form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--color-dark);
+  font-size: 16px;
+}
+
+.password-input-container { position: relative; width: 100%; display: block; }
+
+.password-form-input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  border: 1px solid #ced4da;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.password-form-input:focus {
+  outline: none;
+  border-color: var(--color-dark);
+  box-shadow: 0 0 0 2px rgba(85,89,93,0.1);
+}
+
+.eye-toggle-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-gray);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 16px;
+  line-height: 1;
+  z-index: 1000;
+}
+.eye-toggle-button:hover,
+.eye-toggle-button:focus { color: var(--color-danger); outline: none; }
+
+.password-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 10px;
+}
+
+.password-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 100px;
+}
+.password-btn-secondary { background-color: var(--color-gray); color: white; }
+.password-btn-secondary:hover { background-color: var(--color-dark); transform: translateY(-1px); }
+.password-btn-primary { background-color: #007bff; color: white; }
+.password-btn-primary:hover { background-color: #0274ee; transform: translateY(-1px); }
+.password-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.password-message { padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 16px; font-size: 15px; font-weight: 500; }
+.password-message-success { background-color: var(--color-success-bg); color: var(--color-success-text); border: 1px solid #c3e6cb; }
+.password-message-error   { background-color: var(--color-danger-bg);  color: var(--color-danger-text);  border: 1px solid #f5c6cb; }
+
+/* Requisitos de contraseña */
+.password-requirements {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: var(--color-gray-light);
+  border: 1px solid #e9ecef;
+  border-radius: var(--radius-sm);
+}
+.requirements-title { margin: 0 0 8px; font-size: 15px; font-weight: 600; color: var(--color-dark); }
+.requirements-list  { display: flex; flex-direction: column; gap: 4px; }
+.requirement-item { display: flex; align-items: center; gap: 8px; font-size: 14px; transition: color 0.2s; }
+.requirement-item.valid   { color: var(--color-success); }
+.requirement-item.invalid { color: var(--color-danger); }
+.requirement-item i   { width: 12px; font-size: 10px; }
+.requirement-item span { flex: 1; }
+
+/* Confirmación de contraseña */
+.password-confirm-msg {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.password-confirm-msg--ok  { color: #28a745; }
+.password-confirm-msg--err { color: #dc3545; }
+
+/* Botones dentro del modal sin clase .password-btn (modo inline heredado) */
+.password-modal-overlay .btn-cancel {
+  padding: 0.7rem 1.5rem;
+  background-color: var(--color-gray);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.password-modal-overlay .btn-submit {
+  padding: 0.7rem 1.5rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.password-modal-overlay .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .password-modal { width: 95%; margin: 0 10px; }
+  .password-modal-title { font-size: 20px; }
+  .password-form-actions { flex-direction: column; }
+  .password-btn { width: 100%; }
+}

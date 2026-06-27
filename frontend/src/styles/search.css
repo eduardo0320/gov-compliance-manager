@@ -1,0 +1,95 @@
+/* ============================================================
+   search.css — Barra de búsqueda y resultados desplegables
+   ============================================================ */
+
+.search-container {
+  flex: 1;
+  max-width: 520px;
+  position: relative;
+  margin-left: 24px;
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 40px 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--color-dark);
+}
+.search-input::placeholder { color: var(--color-dark); opacity: 1; }
+
+.search-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-dark);
+  cursor: pointer;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 4px;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f8f9fa;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.search-result-item:hover { background-color: #f8f9fa; }
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item.no-results {
+  justify-content: center;
+  color: var(--color-gray);
+  cursor: default;
+  gap: 8px;
+}
+.search-result-item.no-results:hover { background-color: transparent; }
+
+.result-icon { margin-right: 12px; color: var(--color-dark); width: 16px; text-align: center; margin-top: 2px; }
+.result-content { flex: 1; min-width: 0; }
+.result-title { font-weight: 600; font-size: 14px; color: var(--color-dark); margin-bottom: 4px; }
+.result-description { font-size: 12px; color: var(--color-gray); margin-bottom: 4px; line-height: 1.4; }
+.result-domain { font-size: 11px; color: var(--color-dark); display: flex; align-items: center; gap: 4px; }
+.result-type { margin-left: 8px; }
+
+.type-badge { font-size: 10px; font-weight: 500; padding: 2px 6px; border-radius: 3px; text-transform: uppercase; }
+.type-badge.proceso   { background-color: #e3f2fd; color: #1976d2; }
+.type-badge.actividad { background-color: #f3e5f5; color: #7b1fa2; }
+
+/* ─── Responsive search ─── */
+@media (max-width: 768px) {
+  .search-container {
+    max-width: 100%;
+    margin-left: 12px;
+    margin-right: 8px;
+  }
+  .search-results {
+    left: 0;
+    right: 0;
+    max-height: 260px;
+  }
+}
+@media (max-width: 480px) {
+  .search-container { margin-left: 8px; }
+  .search-input { font-size: 13px; }
+}

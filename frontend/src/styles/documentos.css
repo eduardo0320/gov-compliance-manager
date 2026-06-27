@@ -1,0 +1,383 @@
+/* ============================================================
+   documentos.css — Estilos para las páginas de documentos
+   ============================================================ */
+
+/* ─── ExpiracionDocumentos / BuscarDocumentos ─── */
+.doc-item-body {
+  flex: 1;
+}
+.doc-item-nombre {
+  font-weight: 600;
+}
+.doc-item-meta {
+  font-size: 13px;
+  color: #495057;
+}
+.doc-item-fecha {
+  font-size: 13px;
+  color: #6c757d;
+}
+.doc-item-actions {
+  text-align: right;
+  min-width: 90px;
+}
+
+/* Filtros en BuscarDocumentos */
+.doc-filter-bar {
+  margin-bottom: 20px;
+}
+.doc-filter-row {
+  margin-bottom: 10px;
+}
+.doc-results-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* ─── DetalleDocumento: tabla de historial ─── */
+.doc-table-scroll {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 65vh;
+}
+.doc-table-wide { min-width: 900px; }
+.doc-table-col-icon  { width: 32px; }
+.doc-table-col-acciones { width: 70px; }
+.doc-table-cell-center { text-align: center; }
+.doc-table-cell-name {
+  font-weight: 500;
+  max-width: 280px;
+}
+.doc-table-cell-name-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.doc-table-cell-meta {
+  color: #6c757d;
+  font-size: 13px;
+}
+.doc-table-cell-meta-sub {
+  color: #6c757d;
+  font-weight: 400;
+}
+.doc-table-cell-fecha-vencida {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ec483b;
+}
+.doc-table-cell-fecha-ok {
+  font-size: 13px;
+  color: #55595d;
+}
+.doc-table-cell-descripcion {
+  color: #6c757d;
+  font-size: 13px;
+  max-width: 180px;
+}
+.doc-table-cell-descripcion-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── DocumentosActividad: formularios y cards ─── */
+.doc-card-margin { margin-bottom: 1rem; }
+.doc-card-icon-neutral { background: #f3f4f6; }
+.doc-form-actions { margin-top: 1rem; }
+.doc-btn-actions { display: flex; gap: 8px; }
+.doc-table-wrap { margin-top: 1rem; }
+
+/* Versión/nombre de documento en tabla */
+.doc-version-bold {
+  font-weight: 600;
+  color: #2980b9;
+}
+.doc-version-normal { font-weight: 400; }
+.doc-version-sup {
+  font-size: 10px;
+  margin-left: 3px;
+  color: #2980b9;
+}
+.doc-version-none { color: #6c757d; }
+.doc-version-count {
+  font-size: 9px;
+  margin-left: 1px;
+  vertical-align: super;
+  color: #2980b9;
+}
+
+/* Links de documentos (Google Drive, etc.) */
+.doc-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.doc-link-btn--edit { color: #4285F4; }
+.doc-link-btn--sheets { color: #0F9D58; }
+.doc-link-btn--drive { color: #185abc; }
+
+/* Estado de carga en documentos */
+.doc-loading { display: flex; align-items: center; gap: 8px; }
+
+/* Input de archivo oculto */
+.doc-file-input-hidden { display: none; }
+
+/* Nombre del documento en lista de resultados */
+.doc-result-nombre { font-weight: 500; }
+.doc-result-desc { font-size: 12px; color: #6c757d; }
+
+/* BuscarDocumentos: estadísticas rápidas */
+.doc-quick-stats-2col {
+  margin-bottom: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* ─── ExpiracionDocumentos: Seccion card ─── */
+.doc-seccion-wrapper { margin-bottom: 20px; }
+.doc-seccion-export-row { margin-bottom: 10px; }
+
+.doc-export-btn--danger {
+  background: #198754;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(25, 135, 84, 0.18);
+}
+.doc-export-btn--warning {
+  background: #198754;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 8px rgba(25, 135, 84, 0.18);
+}
+.doc-export-btn--danger:hover:not(:disabled),
+.doc-export-btn--warning:hover:not(:disabled) {
+  background: #157347;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(25, 135, 84, 0.26);
+}
+.doc-export-btn--danger:disabled,
+.doc-export-btn--warning:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.doc-export-btn-icon { margin-right: 8px; }
+.doc-export-btn-inline {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 1;
+}
+.doc-export-btn-inline i {
+  font-size: 13px;
+}
+
+.actividades-seccion-header-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.actividades-seccion-header .seccion-badge {
+  margin-left: 0;
+}
+
+.doc-seccion-card--danger {
+  border: 1px solid #f3c2c2;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.doc-seccion-card--warning {
+  border: 1px solid #ffe0b2;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.doc-card-header--danger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fdeaea;
+  color: #8a1c1c;
+  padding: 12px 16px;
+}
+.doc-card-header--warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff4e5;
+  color: #8a4b00;
+  padding: 12px 16px;
+}
+
+.doc-card-header-badge--danger {
+  margin-left: auto;
+  background: #dc3545;
+  color: #fff;
+}
+.doc-card-header-badge--warning {
+  margin-left: auto;
+  background: #f39c12;
+  color: #fff;
+}
+
+.doc-card-content { padding: 12px; background: #fff; }
+.doc-list-scroll  { max-height: 320px; overflow-y: auto; padding-right: 4px; }
+
+/* ─── ItemDocumento ─── */
+.doc-item--clickable { cursor: pointer; }
+.doc-item-text { flex: 1; }
+.doc-item-badge-col { text-align: right; min-width: 90px; }
+
+/* ─── ExpiracionDocumentos: stats grid ─── */
+.doc-stats-grid {
+  margin-bottom: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Loading state */
+.doc-loading-icon { margin-right: 8px; }
+.doc-content-header-mb { margin-bottom: 16px; }
+.doc-content-padding { padding: 20px; }
+.doc-error-mb { margin-bottom: 16px; }
+
+/* ─── BuscarDocumentos: filtros y tabla ─── */
+.doc-filtros-footer-gap { display: flex; gap: 8px; }
+.doc-check-mr { margin-right: 6px; }
+
+.doc-table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 65vh;
+}
+.doc-table-min { min-width: 900px; }
+.doc-th-icon    { width: 32px; }
+.doc-th-actions { width: 70px; }
+.doc-td-center  { text-align: center; }
+
+.doc-td-nombre { font-weight: 500; max-width: 280px; }
+.doc-td-nombre-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.doc-td-desc { color: #6c757d; font-weight: 400; }
+.doc-td-version { color: #6c757d; font-size: 13px; }
+.doc-td-meta    { color: #6c757d; font-size: 13px; max-width: 180px; }
+.doc-td-meta-text {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.doc-fecha-vencida { font-size: 13px; font-weight: 600; color: #ec483b; }
+.doc-fecha-vencida-icon { margin-right: 4px; }
+.doc-fecha-ok   { font-size: 13px; color: #55595d; }
+.doc-fecha-none { color: #6c757d; font-size: 13px; }
+.doc-type-icon  { color: #6c757d; font-size: 15px; }
+
+.doc-results-label { margin-bottom: 0.75rem; }
+
+/* ─── DetalleDocumento / DocumentosActividad ─── */
+.doc-card-mb { margin-bottom: 1rem; }
+.doc-card-icon-gray { background: #f3f4f6; }
+.doc-form-actions-mt { margin-top: 1rem; }
+.doc-btn-row { display: flex; gap: 8px; }
+.doc-table-wrap-mt { margin-top: 1rem; }
+
+/* Versión en tabla de documentos */
+.doc-version-link { color: #185abc; }
+.doc-version-text-bold { font-weight: 600; color: #2980b9; }
+.doc-version-text-normal { font-weight: 400; }
+.doc-version-badge {
+  font-size: 10px;
+  margin-left: 3px;
+  color: #2980b9;
+}
+.doc-version-count-sup {
+  font-size: 9px;
+  margin-left: 1px;
+  vertical-align: super;
+  color: #2980b9;
+}
+.doc-version-none { color: #6c757d; }
+
+/* Nombre del documento en lista */
+.doc-nombre-text { font-weight: 500; }
+.doc-desc-text   { font-size: 12px; color: #6c757d; }
+
+/* Botones de link (Google Drive, Sheets, etc.) */
+.doc-link-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.doc-link-gdocs   { color: #4285F4; }
+.doc-link-gsheets { color: #0F9D58; }
+.doc-link-gdrive  { color: #185abc; }
+
+/* Input file oculto */
+.doc-input-hidden { display: none; }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — documentos
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .doc-stats-grid,
+  .doc-quick-stats-2col {
+    grid-template-columns: 1fr !important;
+  }
+  .doc-seccion-card--danger,
+  .doc-seccion-card--warning {
+    border-radius: 8px;
+  }
+  .doc-card-header--danger,
+  .doc-card-header--warning {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  .doc-table-container,
+  .doc-table-wrap {
+    overflow-x: auto;
+  }
+  .doc-filtros-footer-gap {
+    flex-direction: column;
+  }
+  .doc-list-scroll {
+    max-height: 260px;
+  }
+  .doc-btn-row {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 480px) {
+  .doc-card-content { padding: 8px; }
+  .doc-form-actions-mt { margin-top: 12px; }
+  .doc-export-btn--danger,
+  .doc-export-btn--warning {
+    width: 100%;
+    text-align: center;
+  }
+}

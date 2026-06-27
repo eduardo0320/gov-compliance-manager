@@ -1,0 +1,551 @@
+/* ============================================================
+   MisActividades.css — Página de actividades asignadas
+   ============================================================ */
+
+/* ─── Contenedor principal ─── */
+.mis-actividades-container {
+  padding: 0 2rem 3rem;
+  max-width: 1100px;
+}
+
+/* ─── Header ─── */
+.mis-actividades-header {
+  margin-bottom: 1.75rem;
+  padding-top: 0.5rem;
+}
+.mis-actividades-header h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 6px;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mis-actividades-header p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+.icon-tasks {
+  color: #059669;
+}
+
+/* ─── Loading state ─── */
+.actividades-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2rem;
+  color: #6b7280;
+  font-size: 15px;
+}
+.actividades-loading i {
+  color: #059669;
+}
+
+/* ─── Tarjetas resumen ─── */
+.mis-actividades-resumen {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .mis-actividades-resumen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .mis-actividades-resumen {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resumen-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.15s;
+}
+.resumen-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.resumen-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.resumen-numero {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.resumen-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Variantes de color por tipo */
+.resumen-card--completada {
+  border-top: 3px solid #059669;
+}
+.resumen-card--completada .resumen-icon,
+.resumen-card--completada .resumen-numero {
+  color: #059669;
+}
+
+.resumen-card--pendiente {
+  border-top: 3px solid #f59e0b;
+}
+.resumen-card--pendiente .resumen-icon,
+.resumen-card--pendiente .resumen-numero {
+  color: #d97706;
+}
+
+.resumen-card--vencida {
+  border-top: 3px solid #ef4444;
+}
+.resumen-card--vencida .resumen-icon,
+.resumen-card--vencida .resumen-numero {
+  color: #dc2626;
+}
+
+.resumen-card--total {
+  border-top: 3px solid #6366f1;
+}
+.resumen-card--total .resumen-icon,
+.resumen-card--total .resumen-numero {
+  color: #6366f1;
+}
+
+.resumen-card--sin-actividades {
+  border-top: 3px solid #2563eb;
+}
+.resumen-card--sin-actividades .resumen-icon,
+.resumen-card--sin-actividades .resumen-numero {
+  color: #1d4ed8;
+}
+
+/* ─── Secciones ─── */
+.actividades-seccion {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.actividades-seccion-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.9rem 1.25rem;
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* Header según tipo */
+.actividades-seccion-header--completada {
+  border-left: 4px solid #059669;
+  background: linear-gradient(to right, #f0fdf4, #ffffff);
+}
+.actividades-seccion-header--completada i {
+  color: #059669;
+}
+
+.actividades-seccion-header--pendiente {
+  border-left: 4px solid #f59e0b;
+  background: linear-gradient(to right, #fffbeb, #ffffff);
+}
+.actividades-seccion-header--pendiente i {
+  color: #d97706;
+}
+
+.actividades-seccion-header--vencida {
+  border-left: 4px solid #ef4444;
+  background: linear-gradient(to right, #fef2f2, #ffffff);
+}
+.actividades-seccion-header--vencida i {
+  color: #dc2626;
+}
+
+.actividades-seccion-header--sin-actividades {
+  border-left: 4px solid #2563eb;
+  background: linear-gradient(to right, #eff6ff, #ffffff);
+}
+.actividades-seccion-header--sin-actividades i {
+  color: #1d4ed8;
+}
+
+/* Badge numérico en el header */
+.seccion-badge {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 99px;
+}
+
+.seccion-badge--completada {
+  background: #dcfce7;
+  color: #065f46;
+}
+.seccion-badge--pendiente {
+  background: #fef3c7;
+  color: #92400e;
+}
+.seccion-badge--vencida {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.seccion-badge--sin-actividades {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+/* ─── Tabla de actividades ─── */
+.actividades-tabla-scroll {
+  overflow-x: auto;
+}
+
+.actividades-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.actividades-tabla thead tr {
+  background: #f9fafb;
+}
+
+.actividades-tabla th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.actividades-tabla td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+  color: #374151;
+}
+
+.actividades-tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.actividades-tabla tbody tr:hover td {
+  background: #f9fafb;
+}
+
+/* Fila vencida */
+.actividades-tabla tbody tr.vencida td {
+  background: #fff5f5;
+}
+.actividades-tabla tbody tr.vencida:hover td {
+  background: #fee2e2;
+}
+
+/* Fila vence hoy */
+.actividades-tabla tbody tr.vence-hoy td {
+  background: #fffbeb;
+}
+.actividades-tabla tbody tr.vence-hoy:hover td {
+  background: #fef3c7;
+}
+
+/* Columnas específicas */
+.col-subdominio {
+  font-size: 13px;
+  color: #6b7280;
+  max-width: 200px;
+}
+
+.col-avance {
+  min-width: 130px;
+}
+
+.col-fecha {
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.fecha-vencida {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* ─── Nombre de la actividad ─── */
+.nombre-actividad {
+  font-weight: 500;
+  color: #111827;
+  line-height: 1.4;
+}
+
+/* ─── Badges vencida / vence hoy ─── */
+.vencida-badge,
+.vence-hoy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+.vencida-badge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.vence-hoy-badge {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ─── Badge de estado ─── */
+.badge-estado {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid transparent; 
+  white-space: nowrap;
+}
+
+/* ─── Barra de avance ─── */
+.barra-avance-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.barra-avance-track {
+  flex: 1;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.barra-avance-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.barra-avance-pct {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* ─── Botón acción ─── */
+.btn-accion-ver {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #059669;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.btn-accion-ver:hover {
+  background: #047857;
+}
+
+.btn-accion-ver--secundario {
+  background: #2563eb;
+}
+.btn-accion-ver--secundario:hover {
+  background: #1d4ed8;
+}
+
+/* ─── Panel reporte manual ─── */
+.reporte-seguimiento-panel {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  background: #f8fafc;
+}
+
+.reporte-seguimiento-descripcion {
+  margin: 0 0 0.9rem;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.reporte-filtros-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 0.6rem 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.reporte-filtro-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.reporte-filtro-item input {
+  margin: 0;
+}
+
+.reporte-acciones-manuales {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.reporte-acceso-nota {
+  margin-top: 0.7rem;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.reporte-metadata-linea {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 0.5rem 1rem;
+  padding: 0.8rem 1.25rem 0;
+  font-size: 13px;
+  color: #374151;
+}
+
+.reporte-resumen-usuarios {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem 0.2rem;
+}
+
+.reporte-resumen-usuario-card {
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+}
+
+.reporte-resumen-usuario-nombre {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 2px;
+}
+
+.reporte-resumen-usuario-meta {
+  font-size: 12px;
+  color: #475569;
+  margin-bottom: 3px;
+}
+
+.reporte-resumen-usuario-total {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+@media (max-width: 900px) {
+  .reporte-filtros-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reporte-metadata-linea {
+    grid-template-columns: 1fr;
+  }
+
+  .reporte-resumen-usuarios {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Estado vacío ─── */
+.actividades-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 2rem 1rem;
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: center;
+}
+.actividades-empty i {
+  font-size: 28px;
+  opacity: 0.5;
+}
+
+/* ─── Alert genérica (reutiliza clases de Bootstrap si no hay) ─── */
+.alert {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+.alert-danger {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+}
+/* ─── Badge estado — variantes por tipo ─── */
+.badge-estado--pendiente    { background: #fff3cd; color: #856404;  border-color: #ffc107; }
+.badge-estado--en-progreso  { background: #cff4fc; color: #055160;  border-color: #0dcaf0; }
+.badge-estado--implementado { background: #d1e7dd; color: #0a3622;  border-color: #198754; }
+.badge-estado--vencida      { background: #f8d7da; color: #721c24;  border-color: #dc3545; }
+.badge-estado--default      { background: #e2e3e5; color: #41464b;  border-color: #adb5bd; }
+/* ─── Responsive MisActividades ─── */
+@media (max-width: 768px) {
+  .mis-actividades-container { padding: 12px; }
+  .mis-actividades-header h2 { font-size: 18px; }
+  .actividades-tabla-scroll { overflow-x: auto; }
+  .actividades-tabla { min-width: 560px; }
+  .actividades-tabla th,
+  .actividades-tabla td { padding: 8px 6px; font-size: 12px; }
+  .col-subdominio { display: none; }
+  .actividades-seccion-header { font-size: 13px; padding: 8px 12px; }
+}
+@media (max-width: 480px) {
+  .actividades-tabla { min-width: 440px; }
+  .col-fecha { display: none; }
+  .btn-accion-ver { padding: 4px 8px; font-size: 11px; }
+}
