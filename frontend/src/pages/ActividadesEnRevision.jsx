@@ -87,7 +87,7 @@ const cargarLogoInstitucional = () =>
     const img = new Image();
     img.onload = () => resolve(img);
     img.onerror = () => resolve(null);
-    img.src = "/images/MuniLogo_principal.png";
+    img.src = "/images/logo_miccit.png";
   });
 
 function BadgeEstado({ estado }) {

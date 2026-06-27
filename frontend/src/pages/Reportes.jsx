@@ -489,7 +489,7 @@ const Reportes = ({ rolUsuario }) => {
 
       doc.save(`reporte-seguimiento-${new Date().toISOString().slice(0, 10)}.pdf`);
     };
-    logoImg.src = "/images/MuniLogo_principal.png";
+    logoImg.src = "/images/logo_miccit.png";
   };
 
   const handleLimpiarProcesos = () => {
@@ -591,7 +591,7 @@ const Reportes = ({ rolUsuario }) => {
       });
       doc.save(`documentos-vencidos-${new Date().toISOString().slice(0, 10)}.pdf`);
     };
-    logoImg.src = "/images/MuniLogo_principal.png";
+    logoImg.src = "/images/logo_miccit.png";
   };
 
   const exportarProcesosXLSX = async () => {
@@ -600,7 +600,7 @@ const Reportes = ({ rolUsuario }) => {
     workbook.creator = "Sistema MICITT";
     workbook.created = new Date();
 
-    const logoResponse = await fetch("/images/MuniLogo_principal.png");
+    const logoResponse = await fetch("/images/logo_miccit.png");
     const logoBuffer = logoResponse.ok ? await logoResponse.arrayBuffer() : null;
     const worksheet = workbook.addWorksheet("Implementación de procesos");
 
@@ -699,7 +699,7 @@ const Reportes = ({ rolUsuario }) => {
       });
       doc.save(`implementacion-procesos-${new Date().toISOString().slice(0, 10)}.pdf`);
     };
-    logoImg.src = "/images/MuniLogo_principal.png";
+    logoImg.src = "/images/logo_miccit.png";
   };
 
   return (

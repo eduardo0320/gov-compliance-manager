@@ -336,7 +336,7 @@ Usuario: ${nombre}`,
       });
       doc.save("usuarios_registrados.pdf");
     };
-    logoImg.src = "/images/MuniLogo_principal.png";
+    logoImg.src = "/images/logo_miccit.png";
   };
 
   /* ─── render ─── */

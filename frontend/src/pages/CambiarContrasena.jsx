@@ -48,7 +48,7 @@ function PaginaCambiarContrasena() {
   return (
     <div className="login-container">
       <div className="login-box" style={{ maxWidth: 420 }}>
-        <img src="/images/MuniLogo_principal.png" alt="Logo" className="login-logo" />
+        <img src="/images/logo_miccit.png" alt="Logo" className="login-logo" />
         <h2 style={{ marginBottom: 6 }}>Cambio de contraseña obligatorio</h2>
         <p style={{ fontSize: 13, color: '#666', marginBottom: 20, textAlign: 'center' }}>
           Por seguridad debe establecer una contraseña personal antes de continuar.
