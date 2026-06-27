@@ -4,6 +4,7 @@ Full-stack compliance management platform based on Costa Rica's MiCITT IT
 Governance and Management Practices Implementation Guide (2021), a public 
 government framework aligned with COBIT 2019.
 
+
 ## Tech Stack
 
 **Backend:** ASP.NET Core 9 · Entity Framework Core · MySQL · BCrypt  
@@ -83,6 +84,17 @@ MiCITT Implementation Guide, a publicly available Costa Rican government
 document. The framework organizes IT governance practices into domains, 
 processes, subdomains, and activities — each with implementation status, 
 progress percentage, responsible parties, and supporting documentation.
+
+##  Disclaimer
+
+This project was built by a software engineering student as a portfolio piece 
+and real-world practice exercise. While it follows industry conventions for 
+authentication, authorization, and architecture, it may contain logic or design 
+decisions that a more experienced developer would approach differently.
+
+It is intended as a demonstration of technical skills, not as production-ready 
+software. Feedback and suggestions are welcome.
+
 
 ## License
 
